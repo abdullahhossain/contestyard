@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_color"
+    tools:context="Organizer.Update_Post_ORG">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/bannerViewIV"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/white"
+            android:elevation="10dp"
+            android:src="@drawable/banner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/chooseBannerTV"
+            android:layout_width="167dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape"
+            android:drawableStart="@drawable/ic_baseline_image"
+            android:onClick="ChooseBanner"
+            android:padding="17dp"
+            android:text=" Choose Banner"
+            android:textColor="@color/button_color"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.03"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerViewIV" />
+
+        <EditText
+            android:id="@+id/postNameET"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/ic_baseline_name_24"
+            android:hint=" Contest Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseBannerTV" />
+
+
+        <EditText
+            android:id="@+id/postDescriptionET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/ic_baseline_description"
+            android:hint=" Description"
+            android:minLines="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postFeesET" />
+
+        <EditText
+
+            android:id="@+id/postFeesET"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/ic_baseline_money"
+            android:hint=" Fees"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postNameET" />
+
+        <TextView
+            android:id="@+id/dateChooser"
+            android:layout_width="167dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape"
+            android:drawableStart="@drawable/ic_baseline_calendar"
+            android:onClick="DatePicker"
+            android:padding="10dp"
+            android:text=" Choose Last \n Date"
+            android:textColor="@color/button_color"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.101"
+            app:layout_constraintStart_toEndOf="@+id/chooseBannerTV"
+            app:layout_constraintTop_toBottomOf="@+id/bannerViewIV" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="240dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/shape"
+            android:backgroundTint="@color/button_color"
+            android:elevation="10dp"
+            android:onClick="CreatePost"
+            android:text="Create Post"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postDescriptionET"
+            app:layout_constraintVertical_bias="0.14" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
