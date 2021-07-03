@@ -25,7 +25,7 @@ import USER.Registration_Option;
 import USER.user_profile;
 
 public class MainActivity extends AppCompatActivity {
-    EditText emailET, passwordET;
+
     String emailST, passwordST;
     SharedPreferences sharedPreferences;
     String PREF_NAME = "LOGIN_TRACK";
