@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.yaga909.contestyard.session.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,22 +28,11 @@ import USER.user_profile;
 public class MainActivity extends AppCompatActivity {
     EditText emailET, passwordET;
     String emailST, passwordST;
-    SharedPreferences sharedPreferences;
-    String PREF_NAME = "LOGIN_TRACK";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
-        boolean isLoggedIn = sharedPreferences.getBoolean("IS_LOGGED_IN", false);
-      if (isLoggedIn){
-          Intent intent=new Intent(this, user_profile.class);
-          intent.putExtra("email",sharedPreferences.getString("email",""));
-          intent.putExtra("password",sharedPreferences.getString("password",""));
-          startActivity(intent);
-          finish();
-      }
 
 
 
@@ -92,12 +82,10 @@ public class MainActivity extends AppCompatActivity {
                     if (!data.getString("error").equalsIgnoreCase("no")) {
                         Toast.makeText(MainActivity.this, "Invalid Email Or Password!", Toast.LENGTH_SHORT).show();
                     } else {
+                        SessionManager sessionManager = new SessionManager(MainActivity.this);
+                        sessionManager.createSession(userEmail,userPassword);
 
-                        SharedPreferences.Editor editor=getSharedPreferences("LOGIN_TRACK",MODE_PRIVATE).edit();
-                        editor.putBoolean("IS_LOGGED_IN",true);
-                        editor.putString("email",userEmail);
-                        editor.putString("password",userPassword);
-                        editor.apply();
+
 
                         Intent intent = new Intent(MainActivity.this, user_profile.class);
                         intent.putExtra("email", userEmail);

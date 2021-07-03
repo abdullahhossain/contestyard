@@ -1,7 +1,6 @@
 package USER;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -25,8 +24,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
-import com.yaga909.contestyard.MainActivity;
 import com.yaga909.contestyard.R;
+import com.yaga909.contestyard.session.SessionManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,7 +48,7 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-
+    SessionManager sessionManager;
 
     RecyclerView recyclerView;
     User_Profile_Adapter user_profile_adapter;
@@ -60,6 +59,8 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
 
 
         userNameTV = findViewById(R.id.userNameTV);
@@ -68,7 +69,6 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.topAppBar);
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navView);
-
 
 
         setSupportActionBar(toolbar);
@@ -95,7 +95,6 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
         //recycler view:
         recyclerView = findViewById(R.id.recyclerview);
         user_list = new ArrayList<>();
-        // user_list2 = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
@@ -126,7 +125,6 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                         Log.d("TAG", "onResponse: " + data);
 
 
-                        // loadCompPost(postedBy);
                         user_profile_adapter = new User_Profile_Adapter(user_profile.this, user_list);
                         recyclerView.setAdapter(user_profile_adapter);
 
@@ -241,14 +239,8 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.logout:
-//
-//
-                SharedPreferences.Editor editor = getSharedPreferences("LOGIN_TRACK", MODE_PRIVATE).edit();
-                editor.clear().apply();
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
+                SessionManager sessionManager = new SessionManager(user_profile.this);
+                sessionManager.logout();
 
         }
 
