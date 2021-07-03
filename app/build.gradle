@@ -65,4 +65,7 @@ dependencies {
     //contdown
     implementation 'com.github.iwgang:countdownview:2.1.6'
 
+    //shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
 }

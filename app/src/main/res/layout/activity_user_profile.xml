@@ -25,6 +25,12 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/shimmerLayout">
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -120,7 +126,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
     </ScrollView>
 </androidx.drawerlayout.widget.DrawerLayout>

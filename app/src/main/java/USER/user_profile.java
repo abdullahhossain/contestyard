@@ -24,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.yaga909.contestyard.MainActivity;
 import com.yaga909.contestyard.R;
@@ -49,6 +50,7 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    ShimmerFrameLayout container;
 
 
     RecyclerView recyclerView;
@@ -61,6 +63,8 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        container = findViewById(R.id.shimmerLayout);
+        container.startShimmer();
         userNameTV = findViewById(R.id.userNameTV);
         institutionNameTV = findViewById(R.id.institutionTV);
         circleImageView = findViewById(R.id.profilePicture);
@@ -130,6 +134,7 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                         // loadCompPost(postedBy);
                         user_profile_adapter = new User_Profile_Adapter(user_profile.this, user_list);
                         recyclerView.setAdapter(user_profile_adapter);
+                        container.hideShimmer();
                     }
 
 
