@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="55dp"
     android:id="@+id/navigation_header_container"
-    android:background="@color/card_background"
+    android:background="@color/background_color"
     >
 
 
@@ -17,7 +17,7 @@
         android:layout_marginStart="10dp"
         android:gravity="center"
         android:text="Welcome"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,8 +26,9 @@
 
     <ImageView
         android:id="@+id/navigationMenu"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

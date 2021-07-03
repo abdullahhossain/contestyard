@@ -24,7 +24,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.yaga909.contestyard.MainActivity;
 import com.yaga909.contestyard.R;
@@ -50,7 +49,6 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    ShimmerFrameLayout container;
 
 
     RecyclerView recyclerView;
@@ -58,40 +56,40 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
     List<User_Profile_List> user_list;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        container = findViewById(R.id.shimmerLayout);
-        container.startShimmer();
+
+
         userNameTV = findViewById(R.id.userNameTV);
         institutionNameTV = findViewById(R.id.institutionTV);
         circleImageView = findViewById(R.id.profilePicture);
+        toolbar = findViewById(R.id.topAppBar);
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navView);
-        toolbar = findViewById(R.id.toolBar);
-
-
 
 
 
         setSupportActionBar(toolbar);
-        navigationView.bringToFront();
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
+                this,
+                drawerLayout,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
 
+        );
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.bringToFront();
         navigationView.setCheckedItem(R.id.newsFeed);
 
 
         loadData();
         loadPostData();
-
 
 
         //recycler view:
@@ -103,9 +101,6 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
 
 
     }
-
-
-
 
 
     public void loadPostData() {
@@ -134,7 +129,7 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                         // loadCompPost(postedBy);
                         user_profile_adapter = new User_Profile_Adapter(user_profile.this, user_list);
                         recyclerView.setAdapter(user_profile_adapter);
-                        container.hideShimmer();
+
                     }
 
 
@@ -153,8 +148,6 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
 
         requestQueue.add(stringRequest);
     }
-
-
 
 
     private void loadPosts() {
