@@ -134,8 +134,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
-        app:itemIconPadding="5dp"
-        app:itemIconTint="@android:color/black"
+
+        app:itemIconTint="@color/card_background"
         app:menu="@menu/slide_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

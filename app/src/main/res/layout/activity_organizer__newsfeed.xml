@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    android:fitsSystemWindows="true"
     tools:openDrawer="start"
     android:id="@+id/drawerLayout"
     tools:context="Organizer.Organizer_Newsfeed">
@@ -16,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemIconTint="@color/card_background"
         app:headerLayout="@layout/header"
         app:menu="@menu/org_menu" />
 
@@ -42,6 +42,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+
                 app:navigationIcon="@drawable/ic_baseline_menu_24" />
 
             <de.hdodenhof.circleimageview.CircleImageView
