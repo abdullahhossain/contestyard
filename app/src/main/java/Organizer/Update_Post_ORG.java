@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.yaga909.contestyard.R;
 
 public class Update_Post_ORG extends AppCompatActivity {
+    String id;
 
 
     @Override
@@ -17,7 +18,7 @@ public class Update_Post_ORG extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update__post__o_r_g);
         Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
+       id = intent.getStringExtra("id");
         Toast.makeText(this, ""+id, Toast.LENGTH_SHORT).show();
 
     }

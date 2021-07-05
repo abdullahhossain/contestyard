@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,9 +65,13 @@ public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapte
         holder.Post_Fees.setText(orgProfile_list.getPost_fees());
         Glide.with(context).load(url + orgProfile_list.getPost_banner()).into(holder.Post_Banner);
 
+
         holder.Post_Update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+              Intent intent = new Intent(context, Update_Post_ORG.class);
+
+              context.startActivity(intent);
 
             }
         });
@@ -82,47 +87,36 @@ public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapte
            @Override
            public void onClick(View v) {
 
-               organizer_newsfeed.deletePost(context);
+             delete(orgProfile_list.getId());
            }
        });
 
     }
 
-//    private void delete(int position) {
-//        String url = "http://projecttech.xyz/contest_yard/delete_post_ORG.php";
-//        RequestQueue requestQueue = Volley.newRequestQueue(context);
-//        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//
-//                if (response.equalsIgnoreCase("Connected")){
-//                    Toast.makeText(context, "Data Deleted Successfully", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    Toast.makeText(context, "Not deleted", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(context, "Delete Failed! "+error.getMessage(), Toast.LENGTH_SHORT).show();
-//
-//            }
-//        }){
-//            @Nullable
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> data = new HashMap<>();
-//                data.put("id", String.valueOf(position));
-//
-//
-//
-//                    return data;
-//            }
-//        };
-//        requestQueue.add(stringRequest);
-//    }
+
+
+    private void delete(int id) {
+        String url = "http://projecttech.xyz/contest_yard/delete_post_ORG.php?id=" + id;
+        Log.d("TAG", "deletePost: "+id);
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(context, "Post Has Been Deleted: "+id, Toast.LENGTH_SHORT).show();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(stringRequest);
+
+
+    }
 
 
     @Override
