@@ -106,12 +106,8 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
                                 data.getString("comp_date"),
                                 data.getString("comp_fees"),
                                 data.getString("comp_image_name")));
-
                         identity = data.getInt("id");
-
-                        Intent intent = new Intent();
-                       intent.putExtra("id",data.getInt("id"));
-
+                        Log.d("TAG", "onResponse: "+identity);
 
                         org_profile_adapter = new Org_Profile_Adapter(Organizer_Newsfeed.this, org_list);
                         recyclerView.setAdapter(org_profile_adapter);
@@ -138,6 +134,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
 
 
         String url = "http://projecttech.xyz/contest_yard/delete_post_ORG.php?id=" + identity;
+        Log.d("TAG", "deletePost: "+identity);
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
