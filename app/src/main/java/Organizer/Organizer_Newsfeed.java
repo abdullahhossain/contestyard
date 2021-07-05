@@ -105,7 +105,8 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
                                 data.getString("comp_name"),
                                 data.getString("comp_date"),
                                 data.getString("comp_fees"),
-                                data.getString("comp_image_name")));
+                                data.getString("comp_image_name"),
+                                data.getString("comp_description")));
                         identity = data.getInt("id");
                         Log.d("TAG", "onResponse: "+identity);
 

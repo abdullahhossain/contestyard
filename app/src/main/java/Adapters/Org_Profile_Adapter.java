@@ -70,7 +70,12 @@ public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapte
             @Override
             public void onClick(View v) {
               Intent intent = new Intent(context, Update_Post_ORG.class);
-
+              intent.putExtra("id", orgProfile_list.getId());
+              intent.putExtra("post_details", orgProfile_list.getPost_details());
+              intent.putExtra("post_name",orgProfile_list.getPost_name());
+              intent.putExtra("post_banner", orgProfile_list.getPost_banner());
+              intent.putExtra("post_date", orgProfile_list.getPost_last_date());
+              intent.putExtra("post_fees", orgProfile_list.getPost_fees());
               context.startActivity(intent);
 
             }
