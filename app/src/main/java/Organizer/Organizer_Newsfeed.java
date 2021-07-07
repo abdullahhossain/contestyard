@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -43,6 +44,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
     NavigationView navigationView;
     Toolbar toolbar;
     TextView orgNameTV;
+    SwipeRefreshLayout swipeRefreshLayout;
     CircleImageView circleImageView;
     String username, username1, code;
   int identity;
@@ -64,6 +66,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         toolbar = findViewById(R.id.toolBar);
         orgNameTV = findViewById(R.id.userNameTV);
         circleImageView = findViewById(R.id.profilePicture);
+       swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         setSupportActionBar(toolbar);
         navigationView.bringToFront();
@@ -81,6 +84,17 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         org_list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+              recyclerView.setAdapter(org_profile_adapter);
+
+               swipeRefreshLayout.setRefreshing(false);
+
+            }
+        });
 
 
         loadData();

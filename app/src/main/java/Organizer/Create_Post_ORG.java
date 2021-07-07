@@ -153,7 +153,9 @@ public class Create_Post_ORG extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(Create_Post_ORG.this, "Done", Toast.LENGTH_SHORT).show();
-                finish();
+                postNameET.getText().clear();
+                postFeesET.getText().clear();
+                postDescriptionET.getText().clear();
 
             }
         }, new Response.ErrorListener() {
