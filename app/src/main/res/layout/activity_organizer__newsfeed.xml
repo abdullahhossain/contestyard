@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:openDrawer="end"
+    tools:openDrawer="start"
     android:background="@color/background_color"
     tools:context="Organizer.Organizer_Newsfeed">
 
@@ -18,33 +18,10 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/org_menu" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-                    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                        android:id="@+id/swipeRefreshLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/view2" >
-
-
-
-
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true">
-
-
-
-
-
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -123,8 +100,7 @@
 
         </ScrollView>
 
-                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </FrameLayout>
+
     </androidx.drawerlayout.widget.DrawerLayout>
 
 
