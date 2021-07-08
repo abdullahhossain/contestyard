@@ -66,7 +66,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         toolbar = findViewById(R.id.toolBar);
         orgNameTV = findViewById(R.id.userNameTV);
         circleImageView = findViewById(R.id.profilePicture);
-       swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+     //  swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         setSupportActionBar(toolbar);
         navigationView.bringToFront();
@@ -89,8 +89,8 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-              recyclerView.setAdapter(org_profile_adapter);
 
+                loadNewsFeed(code);
                swipeRefreshLayout.setRefreshing(false);
 
             }

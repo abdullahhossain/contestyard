@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
@@ -25,8 +26,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+
 import com.yaga909.contestyard.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +42,7 @@ import Organizer.Update_Post_ORG;
 public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapter.Org_Profile_CustomViewHolder> {
     Context context;
     List<OrgProfile_List> org_list;
-    Organizer_Newsfeed organizer_newsfeed = new Organizer_Newsfeed();
+
 
     public Org_Profile_Adapter(Context context, List<OrgProfile_List> org_list) {
         this.context = context;
@@ -111,6 +114,7 @@ public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapte
             public void onResponse(String response) {
                 Toast.makeText(context, "Post Has Been Deleted: "+id, Toast.LENGTH_SHORT).show();
 
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -122,6 +126,8 @@ public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapte
 
 
     }
+
+
 
 
     @Override

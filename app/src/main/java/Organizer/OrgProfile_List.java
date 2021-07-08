@@ -60,4 +60,5 @@ public class OrgProfile_List {
     public void setPost_banner(String post_banner) {
         this.post_banner = post_banner;
     }
+
 }
