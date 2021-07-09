@@ -104,7 +104,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
     }
 
 
-    private void loadNewsFeed(String code) {
+    public void loadNewsFeed(String code) {
         String url = "http://projecttech.xyz/contest_yard/org_post_newsfeed.php?comp_code=" + code;
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -120,7 +120,8 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
                                 data.getString("comp_date"),
                                 data.getString("comp_fees"),
                                 data.getString("comp_image_name"),
-                                data.getString("comp_description")));
+                                data.getString("comp_description"),
+                                data.getString("comp_code")));
                         identity = data.getInt("id");
                         Log.d("TAG", "onResponse: "+identity);
 

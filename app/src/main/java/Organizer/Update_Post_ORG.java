@@ -38,7 +38,7 @@ import java.util.Random;
 
 public class Update_Post_ORG extends AppCompatActivity {
     int id;
-    String post_name, post_fees, post_date, post_details, post_banner;
+    String post_name, post_fees, post_date, post_details, post_banner, code;
     TextView datechooser;
     EditText name, fees, description;
     ImageView banner;
@@ -60,6 +60,7 @@ public class Update_Post_ORG extends AppCompatActivity {
         post_date = intent.getStringExtra("post_date");
         post_details = intent.getStringExtra("post_details");
         post_banner = intent.getStringExtra("post_banner");
+        code = intent.getStringExtra("comp_code");
 
         datechooser = findViewById(R.id.dateChooser);
         name = findViewById(R.id.postNameET);
@@ -158,7 +159,6 @@ public class Update_Post_ORG extends AppCompatActivity {
             public void onResponse(String response) {
                 Toast.makeText(Update_Post_ORG.this, "Updated", Toast.LENGTH_SHORT).show();
                 finish();
-
             }
         }, new Response.ErrorListener() {
             @Override

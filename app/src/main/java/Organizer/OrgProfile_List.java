@@ -2,15 +2,24 @@ package Organizer;
 
 public class OrgProfile_List {
     int id;
-    String post_name, post_last_date, post_fees, post_banner,post_details;
+    String post_name, post_last_date, post_fees, post_banner,post_details, org_code;
 
-    public OrgProfile_List(int id, String post_name, String post_last_date, String post_fees, String post_banner, String post_details) {
+    public OrgProfile_List(int id, String post_name, String post_last_date, String post_fees, String post_banner, String post_details, String org_code) {
         this.id = id;
         this.post_name = post_name;
         this.post_last_date = post_last_date;
         this.post_fees = post_fees;
         this.post_banner = post_banner;
         this.post_details = post_details;
+        this.org_code = org_code;
+    }
+
+    public String getOrg_code() {
+        return org_code;
+    }
+
+    public void setOrg_code(String org_code) {
+        this.org_code = org_code;
     }
 
     public String getPost_details() {

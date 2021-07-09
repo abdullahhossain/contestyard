@@ -79,6 +79,7 @@ public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapte
               intent.putExtra("post_banner", orgProfile_list.getPost_banner());
               intent.putExtra("post_date", orgProfile_list.getPost_last_date());
               intent.putExtra("post_fees", orgProfile_list.getPost_fees());
+                intent.putExtra("comp_code", orgProfile_list.getOrg_code());
               context.startActivity(intent);
 
             }
