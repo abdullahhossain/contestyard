@@ -44,7 +44,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
     NavigationView navigationView;
     Toolbar toolbar;
     TextView orgNameTV;
-    SwipeRefreshLayout swipeRefreshLayout;
+   // SwipeRefreshLayout swipeRefreshLayout;
     CircleImageView circleImageView;
     String username, username1, code;
   int identity;
@@ -85,16 +85,16 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-                loadNewsFeed(code);
-               swipeRefreshLayout.setRefreshing(false);
-
-            }
-        });
+//
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//
+//                loadNewsFeed(code);
+//               swipeRefreshLayout.setRefreshing(false);
+//
+//            }
+//        });
 
 
         loadData();

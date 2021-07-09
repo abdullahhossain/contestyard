@@ -173,7 +173,7 @@ public class Create_Post_ORG extends AppCompatActivity {
                 stringStringMap.put("comp_date", lastDateET.getText().toString());
                 stringStringMap.put("comp_description", postDescriptionET.getText().toString());
                 stringStringMap.put("comp_fees", postFeesET.getText().toString() + " taka");
-                stringStringMap.put("comp_image_name", "Banner" + image_name + ".jpg");
+                stringStringMap.put("comp_image_name", "Banner"+image_name+".jpg");
                 stringStringMap.put("comp_posted_by",username);
                 stringStringMap.put("comp_code",code);
                 stringStringMap.put("dp", ImageToString(bitmap));
