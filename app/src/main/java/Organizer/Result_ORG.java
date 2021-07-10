@@ -66,7 +66,6 @@ public class Result_ORG extends AppCompatActivity {
                 byte[] pdfToString = new byte[inputStream.available()];
                 inputStream.read(pdfToString);
            encodedPDF = Base64.encodeToString(pdfToString,Base64.DEFAULT);
-                Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
 
 
 
