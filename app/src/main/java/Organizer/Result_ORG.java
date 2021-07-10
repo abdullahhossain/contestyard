@@ -67,7 +67,7 @@ public class Result_ORG extends AppCompatActivity {
                 inputStream.read(pdfToString);
            encodedPDF = Base64.encodeToString(pdfToString,Base64.DEFAULT);
 
-
+                Log.d("TAG", "onActivityResult: Abcd"+encodedPDF);
 
 
             } catch (FileNotFoundException e) {
