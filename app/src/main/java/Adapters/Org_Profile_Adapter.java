@@ -88,7 +88,12 @@ public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapte
         holder.Result_Publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, Result_ORG.class));
+                 Intent intent = new Intent(context, Result_ORG.class);
+                 intent.putExtra("id", orgProfile_list.getId());
+                 intent.putExtra("post_name", orgProfile_list.getPost_name());
+                 intent.putExtra("org_code", orgProfile_list.getOrg_code());
+                 context.startActivity(intent);
+
             }
         });
 
