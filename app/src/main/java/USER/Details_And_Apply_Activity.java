@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.yaga909.contestyard.Payment_Activity;
 import com.yaga909.contestyard.R;
 
 public class Details_And_Apply_Activity extends AppCompatActivity {
@@ -44,5 +46,9 @@ public class Details_And_Apply_Activity extends AppCompatActivity {
 
 
 
+    }
+
+    public void ApplyBTN(View view) {
+        startActivity(new Intent(Details_And_Apply_Activity.this, Payment_Activity.class));
     }
 }
