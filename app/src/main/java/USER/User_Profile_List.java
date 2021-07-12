@@ -2,11 +2,11 @@ package USER;
 
 public class User_Profile_List {
     int id;
-    String org_name, location, org_logo_name, comp_name, comp_date, comp_fees, comp_banner_name;
+    String org_name, location, org_logo_name, comp_name, comp_date, comp_fees, comp_banner_name, comp_details;
 
 
 
-    public User_Profile_List(int id, String org_name, String location, String org_logo_name, String comp_name, String comp_date, String comp_fees, String comp_banner_name) {
+    public User_Profile_List(int id, String org_name, String location, String org_logo_name, String comp_name, String comp_date, String comp_fees, String comp_banner_name, String comp_details) {
         this.id = id;
         this.org_name = org_name;
         this.location = location;
@@ -16,8 +16,16 @@ public class User_Profile_List {
         this.comp_date = comp_date;
         this.comp_fees = comp_fees;
         this.comp_banner_name = comp_banner_name;
+        this.comp_details = comp_details;
     }
 
+    public String getComp_details() {
+        return comp_details;
+    }
+
+    public void setComp_details(String comp_details) {
+        this.comp_details = comp_details;
+    }
 
     public int getId() {
         return id;

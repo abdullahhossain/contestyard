@@ -1,6 +1,7 @@
 package Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.yaga909.contestyard.R;
+
+import USER.Details_And_Apply_Activity;
 import USER.User_Profile_List;
 
 import java.util.List;
@@ -64,7 +67,12 @@ public class User_Profile_Adapter extends RecyclerView.Adapter<User_Profile_Adap
         holder.detailsBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Details!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, Details_And_Apply_Activity.class);
+                intent.putExtra("comp_name", user_profile_list.getComp_name());
+                intent.putExtra("comp_fee", user_profile_list.getComp_fees());
+                intent.putExtra("comp_details",user_profile_list.getComp_details());
+                intent.putExtra("comp_image", user_profile_list.getComp_banner_name());
+                context.startActivity(intent);
             }
         });
 

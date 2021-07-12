@@ -121,7 +121,8 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                                 data.getString("comp_name"),
                                 data.getString("comp_date"),
                                 data.getString("comp_fees"),
-                                data.getString("comp_image_name")));
+                                data.getString("comp_image_name"),
+                                data.getString("comp_description")));
                         Log.d("TAG", "onResponse: " + data);
 
 
