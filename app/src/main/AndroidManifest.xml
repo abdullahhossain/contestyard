@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ContestYard"
         android:usesCleartextTraffic="true">
-        <activity android:name="USER.Details_And_Apply_Activity"></activity>
+        <activity android:name=".Payment_Activity"></activity>
+        <activity android:name="USER.Details_And_Apply_Activity" />
         <activity android:name="Organizer.Result_ORG" />
         <activity android:name="Organizer.Delete_Post_ORG" />
         <activity android:name="Organizer.Update_Post_ORG" />
