@@ -1,7 +1,6 @@
 package com.yaga909.contestyard;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -27,13 +26,12 @@ import USER.user_profile;
 
 public class MainActivity extends AppCompatActivity {
     EditText emailET, passwordET;
-    String emailST, passwordST;
+    String emailST, passwordST, code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
         emailET = findViewById(R.id.postFeesET);
@@ -83,13 +81,14 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Invalid Email Or Password!", Toast.LENGTH_SHORT).show();
                     } else {
                         SessionManager sessionManager = new SessionManager(MainActivity.this);
-                        sessionManager.createSession(userEmail,userPassword);
+                        sessionManager.createSession(userEmail, userPassword);
 
-
+                        code = data.getString("un_number");
 
                         Intent intent = new Intent(MainActivity.this, user_profile.class);
                         intent.putExtra("email", userEmail);
                         intent.putExtra("password", userPassword);
+                        intent.putExtra("un_number", code);
                         startActivity(intent);
                         finish();
                     }

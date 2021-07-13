@@ -38,7 +38,7 @@ import Adapters.User_Profile_Adapter;
 import SlideBar.About_Us;
 import SlideBar.Category;
 import SlideBar.Notification;
-import SlideBar.Posts;
+import SlideBar.Requests;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -49,6 +49,8 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Toolbar toolbar;
     SessionManager sessionManager;
+    String code;
+
 
     RecyclerView recyclerView;
     User_Profile_Adapter user_profile_adapter;
@@ -61,6 +63,11 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_user_profile);
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
+
+        Intent intent = getIntent();
+        code = intent.getStringExtra("un_number");
+
+        Log.d("code", "onCreate: "+code);
 
 
         userNameTV = findViewById(R.id.userNameTV);
@@ -86,6 +93,8 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
         navigationView.setCheckedItem(R.id.newsFeed);
+
+
 
 
         loadData();
@@ -122,11 +131,12 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                                 data.getString("comp_date"),
                                 data.getString("comp_fees"),
                                 data.getString("comp_image_name"),
-                                data.getString("comp_description")));
+                                data.getString("comp_description"),
+                                data.getString("comp_code")));
                         Log.d("TAG", "onResponse: " + data);
 
 
-                        user_profile_adapter = new User_Profile_Adapter(user_profile.this, user_list);
+                        user_profile_adapter = new User_Profile_Adapter(user_profile.this, user_list, code);
                         recyclerView.setAdapter(user_profile_adapter);
 
                     }
@@ -204,9 +214,11 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
             drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else {
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -222,9 +234,11 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
             case R.id.newsFeed:
                 break;
 
-            case R.id.all_posts:
-                startActivity(new Intent(this, Posts.class));
-                break;
+            case R.id.requested:
+                Intent intent = new Intent(user_profile.this, Requests.class);
+                intent.putExtra("code", code);
+                startActivity(intent);
+break;
 
             case R.id.category:
                 startActivity(new Intent(this, Category.class));

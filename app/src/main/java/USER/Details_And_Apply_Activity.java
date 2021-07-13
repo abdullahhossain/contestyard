@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,7 +15,7 @@ import com.yaga909.contestyard.Payment_Activity;
 import com.yaga909.contestyard.R;
 
 public class Details_And_Apply_Activity extends AppCompatActivity {
-    String name, photoname, fee, details;
+    String name, photoname, fee, details, comp_code, un_number;
     TextView postName, postFee, postDetails;
     ImageView postImage;
 
@@ -33,6 +34,9 @@ public class Details_And_Apply_Activity extends AppCompatActivity {
         fee = intent.getStringExtra("comp_fee");
         details = intent.getStringExtra("comp_details");
         photoname = intent.getStringExtra("comp_image");
+        comp_code = intent.getStringExtra("comp_code");
+        un_number = intent.getStringExtra("un_code");
+
 
         postName.setText(name);
         postFee.setText(fee);
@@ -49,6 +53,11 @@ public class Details_And_Apply_Activity extends AppCompatActivity {
     }
 
     public void ApplyBTN(View view) {
-        startActivity(new Intent(Details_And_Apply_Activity.this, Payment_Activity.class));
+    Intent intent = new Intent(Details_And_Apply_Activity.this, Payment_Activity.class);
+    intent.putExtra("comp_name", name);
+    intent.putExtra("comp_image", photoname);
+    intent.putExtra("comp_code", comp_code);
+    intent.putExtra("un_number", un_number);
+    startActivity(intent);
     }
 }

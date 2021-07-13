@@ -25,7 +25,7 @@
         <activity android:name="SlideBar.About_Us" />
         <activity android:name="SlideBar.Notification" />
         <activity android:name="SlideBar.Category" />
-        <activity android:name="SlideBar.Posts" />
+        <activity android:name="SlideBar.Requests" />
         <activity android:name=".terms_and_conditions" />
         <activity android:name="USER.Participant_Registration_Form" />
         <activity android:name="USER.user_profile" />
