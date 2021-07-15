@@ -28,7 +28,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profilePicture"
@@ -36,26 +36,114 @@
                     android:layout_height="100dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="40dp"
-                    android:layout_marginBottom="40dp"
                     android:elevation="10dp"
+                    android:src="@drawable/pp"
                     app:civ_border_color="#2A000000"
                     app:civ_border_width="2dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/pp" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
+                    android:layout_marginTop="60dp"
                     android:text="Showcase The Name"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/profilePicture"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profilePicture">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Participant Name:"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Abdullah Hossain"
+                        android:textSize="15sp"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/black"/>
+
+
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Institution:"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PCIU"
+                            android:textSize="15sp"
+                            android:layout_marginStart="10dp"
+                            android:textColor="@color/black"/>
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Participant Email:"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="abdullahhossaincse18@gmail.com"
+                            android:textSize="15sp"
+                            android:layout_marginStart="10dp"
+                            android:textColor="@color/black"/>
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
