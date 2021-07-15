@@ -10,6 +10,10 @@
         android:id="@+id/createPostORG"
         android:icon="@drawable/ic_all_posts"/>
 
+    <item android:title="Participants Request"
+        android:id="@+id/participantsORG"
+        android:icon="@drawable/ic_baseline_add_content"/>
+
     <item
         android:title="Logout"
         android:id="@+id/logout"

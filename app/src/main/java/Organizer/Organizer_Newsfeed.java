@@ -16,7 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -44,10 +43,10 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
     NavigationView navigationView;
     Toolbar toolbar;
     TextView orgNameTV;
-   // SwipeRefreshLayout swipeRefreshLayout;
+    // SwipeRefreshLayout swipeRefreshLayout;
     CircleImageView circleImageView;
     String username, username1, code;
-  int identity;
+    int identity;
 
 
     //recyclerview:
@@ -66,7 +65,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         toolbar = findViewById(R.id.toolBar);
         orgNameTV = findViewById(R.id.userNameTV);
         circleImageView = findViewById(R.id.profilePicture);
-     //  swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        //  swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         setSupportActionBar(toolbar);
         navigationView.bringToFront();
@@ -123,7 +122,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
                                 data.getString("comp_description"),
                                 data.getString("comp_code")));
                         identity = data.getInt("id");
-                        Log.d("TAG", "onResponse: "+identity);
+                        Log.d("TAG", "onResponse: " + identity);
 
                         org_profile_adapter = new Org_Profile_Adapter(Organizer_Newsfeed.this, org_list);
                         recyclerView.setAdapter(org_profile_adapter);
@@ -150,14 +149,14 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
 
 
         String url = "http://projecttech.xyz/contest_yard/delete_post_ORG.php?id=" + identity;
-        Log.d("TAG", "deletePost: "+identity);
+        Log.d("TAG", "deletePost: " + identity);
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, "Post Has Been Deleted: "+identity, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Post Has Been Deleted: " + identity, Toast.LENGTH_SHORT).show();
 
             }
         }, new Response.ErrorListener() {
@@ -234,11 +233,17 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
                 startActivity(intent);
                 break;
 
+            case R.id.participantsORG:
+                Intent intent1 = new Intent(Organizer_Newsfeed.this, Participant_Request_Activity.class);
+                intent1.putExtra("code", code);
+                startActivity(intent1);
+                break;
+
 
             case R.id.logout:
-                Intent intent1 = new Intent(Organizer_Newsfeed.this, MainActivity.class);
-                intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent1);
+                Intent intent2 = new Intent(Organizer_Newsfeed.this, MainActivity.class);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent2);
                 finish();
         }
 
