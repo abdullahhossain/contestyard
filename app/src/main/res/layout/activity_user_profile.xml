@@ -10,6 +10,37 @@
     tools:context="USER.user_profile"
   >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+
+
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            >
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#E2F1E9"
+                app:navigationIcon="@drawable/ic_baseline_menu_24"
+                app:navigationIconTint="@color/black" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,38 +58,19 @@
             <!--                app:layout_constraintEnd_toEndOf="parent"-->
             <!--                app:layout_constraintStart_toStartOf="parent"-->
             <!--                app:layout_constraintTop_toTopOf="parent" />-->
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/appBarLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fitsSystemWindows="true"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/topAppBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="#E2F1E9"
-                    app:navigationIcon="@drawable/ic_baseline_menu_24"
-                    app:navigationIconTint="@color/black" />
-
-            </com.google.android.material.appbar.AppBarLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profilePicture"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="40dp"
                 android:elevation="10dp"
                 app:civ_border_color="#2A000000"
                 app:civ_border_width="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/pp" />
 
             <TextView
@@ -129,15 +141,16 @@
 
     </ScrollView>
 
+
+    </LinearLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
-
         app:itemIconTint="@color/card_background"
         app:menu="@menu/slide_menu" />
-
 </androidx.drawerlayout.widget.DrawerLayout>
 

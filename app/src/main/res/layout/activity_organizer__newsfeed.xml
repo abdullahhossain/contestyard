@@ -18,6 +18,23 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/org_menu" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/status_bar"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_baseline_menu_24" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,32 +46,18 @@
             android:layout_height="wrap_content">
 
 
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/status_bar"
-                    android:minHeight="?attr/actionBarSize"
-                    android:theme="?attr/actionBarTheme"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-
-                    app:navigationIcon="@drawable/ic_baseline_menu_24" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profilePicture"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="10dp"
-                    android:elevation="10dp"
-                    app:civ_border_color="#2A000000"
-                    app:civ_border_width="2dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolBar"
-                    tools:src="@drawable/pp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:elevation="10dp"
+                app:civ_border_color="#2A000000"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/pp" />
 
                 <TextView
                     android:id="@+id/userNameTV"
@@ -99,6 +102,8 @@
 
 
         </ScrollView>
+
+    </LinearLayout>
 
 
     </androidx.drawerlayout.widget.DrawerLayout>
