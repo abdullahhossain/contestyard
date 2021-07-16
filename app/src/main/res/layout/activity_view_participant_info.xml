@@ -31,7 +31,7 @@
                 android:layout_height="match_parent">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profilePicture"
+                    android:id="@+id/circleImageIV"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="20dp"
@@ -44,7 +44,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/contestNameTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -52,41 +52,44 @@
                     android:text="Showcase The Name"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/profilePicture"
+                    app:layout_constraintStart_toEndOf="@+id/circleImageIV"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
+                    android:id="@+id/linearLayout3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
                     android:orientation="vertical"
-                    android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/profilePicture">
+                    app:layout_constraintTop_toBottomOf="@+id/circleImageIV">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Participant Name:"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Abdullah Hossain"
-                        android:textSize="15sp"
-                        android:layout_marginStart="10dp"
-                        android:textColor="@color/black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="Participant Name:"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/nameTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Abdullah Hossain"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -97,22 +100,23 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:text="Institution:"
+                            android:textColor="@color/black"
                             android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"/>
+                            android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/instituteTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="PCIU"
-                            android:textSize="15sp"
                             android:layout_marginStart="10dp"
-                            android:textColor="@color/black"/>
+                            android:text="PCIU"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
 
 
                     </LinearLayout>
-
 
 
                     <LinearLayout
@@ -124,31 +128,41 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
                             android:text="Participant Email:"
+                            android:textColor="@color/black"
                             android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/black"/>
+                            android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/emailTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="abdullahhossaincse18@gmail.com"
-                            android:textSize="15sp"
                             android:layout_marginStart="10dp"
-                            android:textColor="@color/black"/>
+                            android:text="abdullahhossaincse18@gmail.com"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
 
 
                     </LinearLayout>
 
 
-
-
                 </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="30dp"
+                    android:backgroundTint="@color/button_color"
+                    android:text="Accept"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
         </androidx.cardview.widget.CardView>

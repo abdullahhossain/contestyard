@@ -46,7 +46,7 @@ public class Organizer_Registration_Form extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organizer__registration__form);
-        circleImageView = findViewById(R.id.profilePicture);
+        circleImageView = findViewById(R.id.circleImageIV);
 
         orgNameET = findViewById(R.id.postNameET);
         emailET = findViewById(R.id.postDescriptionET);

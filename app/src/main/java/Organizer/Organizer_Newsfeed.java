@@ -64,7 +64,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         navigationView = findViewById(R.id.navView);
         toolbar = findViewById(R.id.toolBar);
         orgNameTV = findViewById(R.id.userNameTV);
-        circleImageView = findViewById(R.id.profilePicture);
+        circleImageView = findViewById(R.id.circleImageIV);
         //  swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         setSupportActionBar(toolbar);

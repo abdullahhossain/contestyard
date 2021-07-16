@@ -45,7 +45,7 @@ public class Participant_Registration_Form extends AppCompatActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_participant_registration__form);
-        circleImageView = findViewById(R.id.profilePicture);
+        circleImageView = findViewById(R.id.circleImageIV);
 
         nameET = findViewById(R.id.postNameET);
         emailET = findViewById(R.id.postDescriptionET);

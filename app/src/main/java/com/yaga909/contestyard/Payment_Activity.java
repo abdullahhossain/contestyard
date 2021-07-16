@@ -2,6 +2,7 @@ package com.yaga909.contestyard;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ import java.util.Map;
 
 public class Payment_Activity extends AppCompatActivity {
     EditText creditNumberET, validNumberET, digitNumberET, nameET;
-    String name, code, image, un_number;
+    String name, code, image, un_number, username, institution,email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,13 @@ public class Payment_Activity extends AppCompatActivity {
         image = intent.getStringExtra("comp_image");
         code = intent.getStringExtra("comp_code");
         un_number = intent.getStringExtra("un_number");
+        username = intent.getStringExtra("username");
+        institution = intent.getStringExtra("institution");
+        email = intent.getStringExtra("email");
+
+        Log.d("username", "onCreate: "+username);
+
+
 
 
     }
@@ -68,6 +76,9 @@ public class Payment_Activity extends AppCompatActivity {
                 stringStringMap.put("comp_image_name", image);
                 stringStringMap.put("comp_status", "Pending");
                 stringStringMap.put("un_number", un_number);
+                stringStringMap.put("student_name", username);
+                stringStringMap.put("institution",institution);
+                stringStringMap.put("email", email);
 
                 return stringStringMap;
             }

@@ -49,7 +49,8 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Toolbar toolbar;
     SessionManager sessionManager;
-    String code;
+    //to pass:
+    String code, username, institution, useremail;
 
 
     RecyclerView recyclerView;
@@ -72,7 +73,7 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
 
         userNameTV = findViewById(R.id.userNameTV);
         institutionNameTV = findViewById(R.id.institutionTV);
-        circleImageView = findViewById(R.id.profilePicture);
+        circleImageView = findViewById(R.id.circleImageIV);
         toolbar = findViewById(R.id.topAppBar);
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navView);
@@ -136,7 +137,7 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                         Log.d("TAG", "onResponse: " + data);
 
 
-                        user_profile_adapter = new User_Profile_Adapter(user_profile.this, user_list, code);
+                        user_profile_adapter = new User_Profile_Adapter(user_profile.this, user_list, code, username, institution, useremail);
                         recyclerView.setAdapter(user_profile_adapter);
 
                     }
@@ -179,6 +180,12 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("contest_yard_student");
                     JSONObject data = jsonArray.getJSONObject(0);
+
+
+
+                    username = data.getString("student_name");
+                    institution = data.getString("institution_name");
+                    useremail = data.getString("student_email");
 
 
                     userNameTV.setText(data.getString("student_name"));

@@ -25,14 +25,18 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class User_Profile_Adapter extends RecyclerView.Adapter<User_Profile_Adapter.User_Profile_CustomAdapter> {
     Context context;
     List<User_Profile_List> user_list;
-    String un_number;
+    String un_number, username, institution,email;
     //  RecyclerViewClickListener listener;
 
 
-    public User_Profile_Adapter(Context context, List<User_Profile_List> user_list, String un_number) {
+    public User_Profile_Adapter(Context context, List<User_Profile_List> user_list, String un_number, String username, String institution, String email) {
         this.context = context;
         this.user_list = user_list;
         this.un_number = un_number;
+        this.username = username;
+        this.institution = institution;
+        this.email = email;
+
 
     }
 
@@ -74,6 +78,9 @@ public class User_Profile_Adapter extends RecyclerView.Adapter<User_Profile_Adap
                 intent.putExtra("comp_image", user_profile_list.getComp_banner_name());
                 intent.putExtra("comp_code", user_profile_list.getComp_code());
                 intent.putExtra("un_code", un_number);
+                intent.putExtra("username", username);
+                intent.putExtra("institution", institution);
+                intent.putExtra("email", email);
                 context.startActivity(intent);
             }
         });
