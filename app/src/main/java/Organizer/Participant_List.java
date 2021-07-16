@@ -2,15 +2,42 @@ package Organizer;
 
 public class Participant_List {
     int id;
-    String comp_name, comp_image, comp_code, comp_status, un_number;
+    String comp_name, comp_image, comp_code, comp_status, un_number, username, institution, email;
 
-    public Participant_List(int id, String comp_name, String comp_image, String comp_code, String comp_status, String un_number) {
+    public Participant_List(int id, String comp_name, String comp_image, String comp_code, String comp_status, String un_number, String username, String institution, String email) {
         this.id = id;
         this.comp_name = comp_name;
         this.comp_image = comp_image;
         this.comp_code = comp_code;
         this.comp_status = comp_status;
         this.un_number = un_number;
+        this.username = username;
+        this.institution = institution;
+        this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(String institution) {
+        this.institution = institution;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getId() {

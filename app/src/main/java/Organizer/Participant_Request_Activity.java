@@ -69,7 +69,10 @@ public class Participant_Request_Activity extends AppCompatActivity {
                                 data.getString("comp_image_name"),
                                 data.getString("comp_code"),
                                 data.getString("comp_status"),
-                                data.getString("un_number")));
+                                data.getString("un_number"),
+                                data.getString("student_name"),
+                                data.getString("institution"),
+                                data.getString("email")));
                        participant_adapter = new ParticipantsRequest_Adapter(Participant_Request_Activity.this, participant_list);
                        recyclerView.setAdapter(participant_adapter);
                     }
