@@ -84,7 +84,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:text="Abdullah Hossain"
+                            tools:text="Abdullah Hossain"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -111,7 +111,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:text="PCIU"
+                            tools:text="PCIU"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -139,7 +139,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:text="abdullahhossaincse18@gmail.com"
+                            tools:text="abdullahhossaincse18@gmail.com"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -155,6 +155,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="30dp"
+                    android:onClick="acceptBTN"
                     android:backgroundTint="@color/button_color"
                     android:text="Accept"
                     app:layout_constraintEnd_toEndOf="parent"

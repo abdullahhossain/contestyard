@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -43,7 +45,8 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
     NavigationView navigationView;
     Toolbar toolbar;
     TextView orgNameTV;
-    // SwipeRefreshLayout swipeRefreshLayout;
+    ScrollView scrollView;
+     SwipeRefreshLayout swipeRefreshLayout;
     CircleImageView circleImageView;
     String username, username1, code;
     int identity;
@@ -54,6 +57,7 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
     RecyclerView recyclerView;
     Org_Profile_Adapter org_profile_adapter;
     List<OrgProfile_List> org_list;
+    LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +69,8 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         toolbar = findViewById(R.id.toolBar);
         orgNameTV = findViewById(R.id.userNameTV);
         circleImageView = findViewById(R.id.circleImageIV);
-        //  swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+         swipeRefreshLayout = findViewById(R.id.swipeRefresh);
+         scrollView = findViewById(R.id.scrollView);
 
         setSupportActionBar(toolbar);
         navigationView.bringToFront();
@@ -84,16 +89,18 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-//
-//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//
-//                loadNewsFeed(code);
-//               swipeRefreshLayout.setRefreshing(false);
-//
-//            }
-//        });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                loadNewsFeed(code);
+                org_list.clear();
+               swipeRefreshLayout.setRefreshing(false);
+
+            }
+        });
+
 
 
         loadData();

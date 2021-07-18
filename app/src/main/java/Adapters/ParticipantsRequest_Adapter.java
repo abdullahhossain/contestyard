@@ -46,6 +46,8 @@ public class ParticipantsRequest_Adapter extends RecyclerView.Adapter<Participan
             @Override
             public void onClick(View v) {
                Intent intent = new Intent(context, View_Participant_Info_Activity.class);
+               intent.putExtra("id", list.getId());
+               intent.putExtra("comp_code", list.getComp_code());
                intent.putExtra("image_name", list.getComp_image());
                intent.putExtra("comp_name", list.getComp_name());
                intent.putExtra("username", list.getUsername());
