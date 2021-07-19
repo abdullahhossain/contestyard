@@ -61,12 +61,6 @@ public class User_Profile_Adapter extends RecyclerView.Adapter<User_Profile_Adap
         holder.comp_date.setText(user_profile_list.getComp_date());
         holder.comp_fees.setText(user_profile_list.getComp_fees());
         Glide.with(context).load(url2 + user_profile_list.getComp_banner_name()).into(holder.comp_banner);
-        holder.applyBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Applied", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         holder.detailsBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +107,7 @@ public class User_Profile_Adapter extends RecyclerView.Adapter<User_Profile_Adap
             comp_fees = itemView.findViewById(R.id.orgFeesTV);
             comp_banner = itemView.findViewById(R.id.contestBannerIV);
             detailsBTN = itemView.findViewById(R.id.detailsBTN);
-            applyBTN = itemView.findViewById(R.id.applyBTN);
+
 
 
         }
