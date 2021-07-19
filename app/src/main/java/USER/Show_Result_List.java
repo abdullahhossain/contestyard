@@ -1,10 +1,11 @@
-package Organizer;
+package USER;
 
-public class Participant_List {
+public class Show_Result_List {
+
     int id;
     String comp_name, comp_image, comp_code, comp_status, un_number, username, institution, email, comp_id;
 
-    public Participant_List(int id, String comp_name, String comp_image, String comp_code, String comp_status, String un_number, String username, String institution, String email, String comp_id) {
+    public Show_Result_List(int id, String comp_name, String comp_image, String comp_code, String comp_status, String un_number, String username, String institution, String email, String comp_id) {
         this.id = id;
         this.comp_name = comp_name;
         this.comp_image = comp_image;
@@ -15,38 +16,6 @@ public class Participant_List {
         this.institution = institution;
         this.email = email;
         this.comp_id = comp_id;
-    }
-
-    public String getComp_id() {
-        return comp_id;
-    }
-
-    public void setComp_id(String comp_id) {
-        this.comp_id = comp_id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getInstitution() {
-        return institution;
-    }
-
-    public void setInstitution(String institution) {
-        this.institution = institution;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public int getId() {
@@ -95,5 +64,37 @@ public class Participant_List {
 
     public void setUn_number(String un_number) {
         this.un_number = un_number;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(String institution) {
+        this.institution = institution;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getComp_id() {
+        return comp_id;
+    }
+
+    public void setComp_id(String comp_id) {
+        this.comp_id = comp_id;
     }
 }

@@ -15,6 +15,7 @@ import com.yaga909.contestyard.R;
 
 public class Details_And_Apply_Activity extends AppCompatActivity {
     String name, photoname, fee, details, comp_code, un_number, username, institution, email;
+    int comp_id;
     TextView postName, postFee, postDetails;
     ImageView postImage;
 
@@ -38,6 +39,8 @@ public class Details_And_Apply_Activity extends AppCompatActivity {
         username = intent.getStringExtra("username");
         institution = intent.getStringExtra("institution");
         email = intent.getStringExtra("email");
+        comp_id = intent.getIntExtra("comp_id",0);
+        Log.d("comp", "onCreate: "+comp_id);
 
 
 
@@ -62,6 +65,7 @@ public class Details_And_Apply_Activity extends AppCompatActivity {
         intent.putExtra("username", username);
         intent.putExtra("institution", institution);
         intent.putExtra("email", email);
+        intent.putExtra("comp_id", comp_id);
         startActivity(intent);
     }
 }

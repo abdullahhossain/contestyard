@@ -36,8 +36,7 @@ import java.util.List;
 
 import Adapters.User_Profile_Adapter;
 import SlideBar.About_Us;
-import SlideBar.Category;
-import SlideBar.Notification;
+import SlideBar.Show_Result_Activity;
 import SlideBar.Requests;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -68,7 +67,7 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
         Intent intent = getIntent();
         code = intent.getStringExtra("un_number");
 
-        Log.d("code", "onCreate: "+code);
+        Log.d("code", "onCreate: " + code);
 
 
         userNameTV = findViewById(R.id.userNameTV);
@@ -94,8 +93,6 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
         navigationView.setCheckedItem(R.id.newsFeed);
-
-
 
 
         loadData();
@@ -182,7 +179,6 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                     JSONObject data = jsonArray.getJSONObject(0);
 
 
-
                     username = data.getString("student_name");
                     institution = data.getString("institution_name");
                     useremail = data.getString("student_email");
@@ -221,11 +217,9 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
-        {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else {
+        } else {
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -245,16 +239,13 @@ public class user_profile extends AppCompatActivity implements NavigationView.On
                 Intent intent = new Intent(user_profile.this, Requests.class);
                 intent.putExtra("code", code);
                 startActivity(intent);
-break;
+                break;
 
             case R.id.category:
-                startActivity(new Intent(this, Category.class));
+               Intent intent1 = new Intent( user_profile.this, Show_Result_Activity.class);
+               intent1.putExtra("un_number", code);
+               startActivity(intent1);
                 break;
-
-            case R.id.notification:
-                startActivity(new Intent(this, Notification.class));
-                break;
-
 
             case R.id.aboutUs:
                 startActivity(new Intent(this, About_Us.class));

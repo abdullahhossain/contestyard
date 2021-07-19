@@ -24,6 +24,7 @@ import java.util.Map;
 public class Payment_Activity extends AppCompatActivity {
     EditText creditNumberET, validNumberET, digitNumberET, nameET;
     String name, code, image, un_number, username, institution,email;
+    int comp_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,12 @@ public class Payment_Activity extends AppCompatActivity {
         username = intent.getStringExtra("username");
         institution = intent.getStringExtra("institution");
         email = intent.getStringExtra("email");
+        comp_id = intent.getIntExtra("comp_id",0);
 
-        Log.d("username", "onCreate: "+username);
+
+
+
+
 
 
 
@@ -79,6 +84,7 @@ public class Payment_Activity extends AppCompatActivity {
                 stringStringMap.put("student_name", username);
                 stringStringMap.put("institution",institution);
                 stringStringMap.put("email", email);
+                stringStringMap.put("comp_id", String.valueOf(comp_id));
 
                 return stringStringMap;
             }

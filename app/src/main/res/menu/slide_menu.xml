@@ -10,7 +10,7 @@
 
         <item
             android:id="@+id/requested"
-            android:title="Request"
+            android:title="Applied"
             android:icon="@drawable/ic_baseline_add_content"/>
 
 
@@ -18,11 +18,7 @@
         <item
             android:id="@+id/category"
             android:icon="@drawable/ic_options"
-            android:title="Category" />
-        <item
-            android:id="@+id/notification"
-            android:icon="@drawable/ic_baseline_notifications"
-            android:title="Notification" />
+            android:title="Result" />
 
         <item
             android:title="About Us"

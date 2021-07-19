@@ -81,6 +81,7 @@ public class User_Profile_Adapter extends RecyclerView.Adapter<User_Profile_Adap
                 intent.putExtra("username", username);
                 intent.putExtra("institution", institution);
                 intent.putExtra("email", email);
+                intent.putExtra("comp_id", user_profile_list.getId());
                 context.startActivity(intent);
             }
         });

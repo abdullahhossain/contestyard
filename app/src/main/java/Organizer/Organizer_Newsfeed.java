@@ -57,7 +57,6 @@ public class Organizer_Newsfeed extends AppCompatActivity implements NavigationV
     RecyclerView recyclerView;
     Org_Profile_Adapter org_profile_adapter;
     List<OrgProfile_List> org_list;
-    LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
