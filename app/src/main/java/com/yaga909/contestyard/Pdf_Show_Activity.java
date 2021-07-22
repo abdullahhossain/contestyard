@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +30,7 @@ public class Pdf_Show_Activity extends AppCompatActivity {
     String comp_code, comp_id;
     PDFView pdfView;
     String pdf;
-    String url = "http://projecttech.xyz/contest_yard/pdf/"+pdf;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +41,17 @@ public class Pdf_Show_Activity extends AppCompatActivity {
         comp_id = intent.getStringExtra("comp_id");
         pdfView = findViewById(R.id.pdfView);
 
-        Log.d("TAG", "pdf name: " + url);
+        Log.d("TAG", "pdf name: " + pdf);
 
 
-        Log.d("TAG", "Comp code: " + comp_code);
+        String url = "http://projecttech.xyz/contest_yard/pdf/"+pdf;
 
 
         new RetrivePdf().execute(url);
         loadPdf(comp_id, comp_code);
     }
 
-    private void loadPdf(String comp_id, String comp_code) {
+    public void loadPdf(String comp_id, String comp_code) {
 
         String url = "http://projecttech.xyz/contest_yard/getPdf.php?comp_code=" + comp_code + "&comp_id=" + comp_id;
         RequestQueue requestQueue = Volley.newRequestQueue(this);
@@ -66,9 +65,7 @@ public class Pdf_Show_Activity extends AppCompatActivity {
 
                     pdf = data.getString("pdf_name");
 
-
                     Toast.makeText(Pdf_Show_Activity.this, "Please Wait", Toast.LENGTH_SHORT).show();
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
