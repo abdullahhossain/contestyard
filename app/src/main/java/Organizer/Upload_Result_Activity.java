@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class Result_ORG extends AppCompatActivity {
+public class Upload_Result_Activity extends AppCompatActivity {
     TextView msgTV;
     String encodedPDF;
     String name, code;
@@ -37,7 +37,7 @@ public class Result_ORG extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result__o_r_g);
+        setContentView(R.layout.activity_upload_result);
         msgTV = findViewById(R.id.msgTV);
         Intent intent = getIntent();
        id = intent.getIntExtra("id", 0);
@@ -62,7 +62,7 @@ public class Result_ORG extends AppCompatActivity {
             msgTV.setText("File Selected");
             Uri Path = data.getData();
             try {
-                InputStream inputStream = Result_ORG.this.getContentResolver().openInputStream(Path);
+                InputStream inputStream = Upload_Result_Activity.this.getContentResolver().openInputStream(Path);
                 byte[] pdfToString = new byte[inputStream.available()];
                 inputStream.read(pdfToString);
            encodedPDF = Base64.encodeToString(pdfToString,Base64.DEFAULT);
@@ -92,13 +92,13 @@ public class Result_ORG extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(Result_ORG.this, "Upload Successfull", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Upload_Result_Activity.this, "Upload Successfull", Toast.LENGTH_SHORT).show();
                 finish();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Result_ORG.this, "Upload Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Upload_Result_Activity.this, "Upload Failed", Toast.LENGTH_SHORT).show();
 
             }
         }){

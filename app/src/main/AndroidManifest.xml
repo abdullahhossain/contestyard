@@ -12,11 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ContestYard"
         android:usesCleartextTraffic="true">
-        <activity android:name="Organizer.View_Participant_Info_Activity"></activity>
+        <activity android:name=".Pdf_Show_Activity"></activity>
+        <activity android:name="Organizer.View_Participant_Info_Activity" />
         <activity android:name="Organizer.Participant_Request_Activity" />
         <activity android:name=".Payment_Activity" />
         <activity android:name="USER.Details_And_Apply_Activity" />
-        <activity android:name="Organizer.Result_ORG" />
+        <activity android:name="Organizer.Upload_Result_Activity" />
         <activity android:name="Organizer.Delete_Post_ORG" />
         <activity android:name="Organizer.Update_Post_ORG" />
         <activity android:name="Organizer.Create_Post_ORG" />

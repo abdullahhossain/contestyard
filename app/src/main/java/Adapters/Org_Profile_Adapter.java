@@ -1,8 +1,6 @@
 package Adapters;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,11 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -29,14 +24,10 @@ import com.bumptech.glide.Glide;
 
 import com.yaga909.contestyard.R;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import Organizer.OrgProfile_List;
-import Organizer.Organizer_Newsfeed;
-import Organizer.Result_ORG;
+import Organizer.Upload_Result_Activity;
 import Organizer.Update_Post_ORG;
 
 public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapter.Org_Profile_CustomViewHolder> {
@@ -88,7 +79,7 @@ public class Org_Profile_Adapter extends RecyclerView.Adapter<Org_Profile_Adapte
         holder.Result_Publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Intent intent = new Intent(context, Result_ORG.class);
+                 Intent intent = new Intent(context, Upload_Result_Activity.class);
                  intent.putExtra("id", orgProfile_list.getId());
                  intent.putExtra("post_name", orgProfile_list.getPost_name());
                  intent.putExtra("org_code", orgProfile_list.getOrg_code());

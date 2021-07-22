@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.yaga909.contestyard.Pdf_Show_Activity;
 import com.yaga909.contestyard.R;
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class Show_Result_Adapter extends RecyclerView.Adapter<Show_Result_Adapte
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, View_Participant_Info_Activity.class);
+                Intent intent = new Intent(context, Pdf_Show_Activity.class);
                 intent.putExtra("id", list.getId());
                 intent.putExtra("comp_code", list.getComp_code());
                 intent.putExtra("image_name", list.getComp_image());
@@ -55,6 +56,7 @@ public class Show_Result_Adapter extends RecyclerView.Adapter<Show_Result_Adapte
                 intent.putExtra("institution", list.getInstitution());
                 intent.putExtra("email", list.getEmail());
                 intent.putExtra("un_code", list.getUn_number());
+                intent.putExtra("comp_id",list.getComp_id());
                 context.startActivity(intent);
             }
         });

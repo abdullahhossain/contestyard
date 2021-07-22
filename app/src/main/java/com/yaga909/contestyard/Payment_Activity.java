@@ -62,7 +62,7 @@ public class Payment_Activity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(Payment_Activity.this, "Request Has Been Sent", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Payment_Activity.this, ""+response, Toast.LENGTH_SHORT).show();
                 finish();
             }
         }, new Response.ErrorListener() {
