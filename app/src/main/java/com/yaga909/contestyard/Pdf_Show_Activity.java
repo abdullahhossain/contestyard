@@ -27,9 +27,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Pdf_Show_Activity extends AppCompatActivity {
-    String comp_code, comp_id;
+   public static String comp_code, comp_id,pdf, url1;
+
     PDFView pdfView;
-    String pdf;
 
 
     @Override
@@ -41,19 +41,16 @@ public class Pdf_Show_Activity extends AppCompatActivity {
         comp_id = intent.getStringExtra("comp_id");
         pdfView = findViewById(R.id.pdfView);
 
-        Log.d("TAG", "pdf name: " + pdf);
 
 
-        String url = "http://projecttech.xyz/contest_yard/pdf/"+pdf;
-
-
-        new RetrivePdf().execute(url);
         loadPdf(comp_id, comp_code);
+
     }
 
     public void loadPdf(String comp_id, String comp_code) {
 
         String url = "http://projecttech.xyz/contest_yard/getPdf.php?comp_code=" + comp_code + "&comp_id=" + comp_id;
+        Log.d("TAG", "url: "+url);
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -62,8 +59,15 @@ public class Pdf_Show_Activity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("result");
                     JSONObject data = jsonArray.getJSONObject(0);
-
                     pdf = data.getString("pdf_name");
+
+                    url1 = "http://projecttech.xyz/contest_yard/pdf/" + pdf;
+                    Log.d("TAG", "onCreate: "+ url1);
+
+
+                    new RetrivePdf().execute(url1);
+
+
 
                     Toast.makeText(Pdf_Show_Activity.this, "Please Wait", Toast.LENGTH_SHORT).show();
 

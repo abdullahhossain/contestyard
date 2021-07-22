@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:openDrawer="end"
+    tools:openDrawer="start"
     android:background="@color/background_color"
     tools:context="Organizer.Organizer_Newsfeed">
 
@@ -18,9 +18,10 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/org_menu" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
